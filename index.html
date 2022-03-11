@@ -20,54 +20,44 @@
 		
 		
 	<a-assets>
-		<a-asset-items id="model" src="modelo_3d/maquina.glb"></a-asset-items>
+		<a-asset-items id="model" src="modelo_3d/maquina.gltf"></a-asset-items>
 		<a-image id="360" src="img/sala1.jpg"></a-image>
 		
 
-		</a-assets>
+	</a-assets>
 		
 		<!-- Ambient Light-->
-		<a-entity light= "type:spot;
-						  target:#model;
-						  intensity:210;
-						  castShadow: false;"
-						  >
+		<a-entity light="type: ambient; intensity: 1;"></a-entity>
+		
+  		<a-entity light="type: directional;
+                   castShadow: true;
+                   intensity: 0.6;
+                   shadowCameraVisible: false;"
+		   position="-3 10 -15">
 		</a-entity>
 
-		<a-entity light="type: hemisphere; color: #3067A0; groundColor: #FEFFF3; intensity: 1"></a-entity>
-
-
+		<a-entity light="type: hemisphere; color: #FFDFA5; groundColor: #FFDFA5; intensity: 1"></a-entity>	
+		
 	<!--CAMERA-->
 
-	<a-entity id="rig" position="25 10 0" >
-  <a-entity id="camera" camera look-controls ></a-entity>
-</a-entity>
-		
-		
- 
-		<!--BOX-->
-		
-		
-
-	
+	<a-entity id="rig" position="0 -5 0" rotation="-1 -190 0">
+  		<a-entity id="camera"  camera look-controls ></a-entity>
+	</a-entity>
 		
 		<!--MODELO ROBOTICS-->
 		
 		<a-entity gltf-model="#model"
-				  
-					  position="22 -22 -50"
-					  scale="3 3 3"
-					  rotation="0 92 0"
-				      shadow="receive:true"
-					  animation-mixer="loop:repeat">
-				  
-								
-			</a-entity>
+			position="-9 -25 30"
+			scale="2 2 2"
+			rotation="0 -188 0"
+			shadow="cast:false"
+			animation-mixer="loop:repeat">
+		</a-entity>
 		
 	
 <!--Céu-->
 		<a-sky src="#360"
-			   rotation="0 180 0">
+			   rotation="0 -7 -1">
 		</a-sky>
 		
 	</a-scene>
